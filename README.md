@@ -1,2 +1,0 @@
-# programming
-prog labs
