@@ -17,28 +17,41 @@ int main()
     
     if (a<b && b<c)
     {
+        
         if (a<=x && a%7==0)
             printf("%d\n", a);
-        else
-            printf("%d\n" , a/b+c );
+        else if (a%7 != 0 && a <=x)
+            printf("%f\n" ,(float) a/(b+c) );
+        if (x<a)
+            printf("no!\n");
+        
 
     }
 
     if (a>b && b>c)
     {
+        
         if (c<=x && c%7==0 )
             printf("%d\n", c);
-        else
-            printf("%d\n" , c/b+a);
+        else if (c%7 != 0 && c <=x)
+            printf("%f\n" ,(float) c/(b+a));
+        if (x<c)
+            printf("no!\n");
+        
     }
 
     if (b<a && a<c)
     {
+        
         if (b<=x && b%7==0)
             printf("%d\n" , b);
-        else
-            printf("%d\n" , b/a+c);
+        else if(b%7 != 0 && b <=x)
+            printf("%f\n" ,(float) b/(a+c));
+        if (x<b)
+            printf( "no!\n");
+        
     }
+    
     return 0;
 }
 
