@@ -7,7 +7,7 @@ void fill(int n, int a[])
 {
     int i;
     for (i = 0; i < n; i++)
-        a[i] = rand () % 101 - 50;
+        a[i] = rand () % 10;
 }
 
 
@@ -57,7 +57,7 @@ int main()
     printf("%d\n", product - sum);
 
     printf("%d\n", index);
-    for (int i = 0; i < n; i++);
+    for (int i = 0; i < n; i++)
         printf("%6d", A[i]);
     printf("\n");
     return 0;
