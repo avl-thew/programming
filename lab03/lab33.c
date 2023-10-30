@@ -14,6 +14,7 @@ void printt(int n, int a[])
     int i;
     for (i = 0; i < n; i++)
         printf("%6d", a[i]);
+    printf("\n");
 }
 
 int main()
@@ -26,7 +27,7 @@ int main()
     scanf("%d", &n);
     int arr[n];
     fill(n,arr);
-    double index;
+    
 
     
     
@@ -62,17 +63,17 @@ int main()
     printf("\n");
     int sum = max1 + max2 + max3;
     int product = max1 * max2 * max3;
-    index = ( imax1 + imax2 + imax3 ) % n;
-    printf("%d\n max1 = ", max1);
-    printf("%d\n max2 = ", max2);
-    printf("%d\n max3 = ", max3);
-    printf("%d\n imax1 = ", imax1);
-    printf("%d\n imax2 = ", imax2);
-    printf("%d\n imax3 = ", imax3);
+    int index = ( imax1 + imax2 + imax3 ) % n;
+    printf("max1 = %d\n", max1);
+    printf("max2 = %d\n", max2);
+    printf("max3 = %d\n", max3);
+    printf("imax1 = %d\n", imax1);
+    printf("imax2 = %d\n", imax2);
+    printf("imax3 = %d\n", imax3);
 
-    printf("%d\n product - sum = ", product - sum);
+    printf("product - sum = %d\n", product - sum);
 
-    printf("%f\n index = ", index);
+    printf("index = %d\n", index);
     printf("arr = ");
     printt(n, arr);
     printf("\n");
