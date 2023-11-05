@@ -97,3 +97,4 @@ int main()
     return 0;
 }  
 ```
+![Alt text](<Screenshot 2023-11-05 at 19-06-40 programming_lab00_README.md at main · violetta0711_programming.png>)
