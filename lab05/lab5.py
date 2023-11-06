@@ -13,8 +13,8 @@ for line in data:
     y.append(float(line[1]))
 
 x0 = 0
-y0 = 2.078427
-
+y0 = -1.036
+#y0 = k*x0+b
 
 plt.plot(x, y, label='График функции')
 
