@@ -17,21 +17,9 @@ void printt(int n, int a[])
     printf("\n");
 }
 
-int main()
+void printff(int n, int arr[])
 {
-    srand(time(NULL));
-    
-
-    int n, imax1, imax2, imax3;
-    printf("n -> ");
-    scanf("%d", &n);
-    int arr[n];
-    fill(n,arr);
-    
-
-    
-    
-    
+    int imax1, imax2, imax3;
     int max1 = arr[0], max2 = arr[0], max3 = arr[0];
     for (int i = 1; i < n; i++)
     {
@@ -57,9 +45,8 @@ int main()
             imax3 = i;
         }
         
-        
     }   
-    printt(n, arr);
+    
     printf("\n");
     int sum = max1 + max2 + max3;
     int product = max1 * max2 * max3;
@@ -74,8 +61,26 @@ int main()
     printf("product - sum = %d\n", product - sum);
 
     printf("index = %d\n", index);
+    
+}
+
+int main()
+{
+    srand(time(NULL));
+    
+
+    int n;
+    printf("n -> ");
+    scanf("%d", &n);
+    int arr[n];
+    fill(n,arr);
+
+    printt(n, arr);
+    printff(n, arr);
     printf("arr = ");
+
     printt(n, arr);
     printf("\n");
+    
     return 0;
 }
