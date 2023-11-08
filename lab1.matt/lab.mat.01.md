@@ -1,3 +1,6 @@
+
+
+
 <h2 style="text-align: center;">Бюджетное учреждение высшего образования Ханты-Мансийского автономного округа – Югры</h2>
 
 <h1 style="text-align: center;">«СУРГУТСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»</h1>
@@ -45,73 +48,73 @@
 - аналитически
 - используя библиотеки Python для символьных вычислений.
 
-Для каждой числовой последовательности $\{x_k\}_{k=1}^\infty$ на одном рисунке построить (используя графические пакеты Python) следующие множества точек ($k = 1, \ldots, m$):
+Для каждой числовой последовательности $\{x_k\}_{k=1}^\infty $ на одном рисунке построить (используя графические пакеты Python) следующие множества точек ($k = 1, \ldots, m$):
 
 - (k, 0) – синий цвет
 - (0, $x_k$) – зеленый цвет
 - (k, $x_k$) – красный цвет
 
-В случае, если последовательность сходится, построить на соответствующем рисунке точку (оранжевый цвет) изображающую предел последовательности $\{x_k\}_{k=1}^\infty$.
+В случае, если последовательность сходится, построить на соответствующем рисунке точку (оранжевый цвет) изображающую предел последовательности $\{x_k\}_{k=1}^\infty $.
 
-В задача 1 для сходящихся последовательностей, для заданного $\varepsilon>0$ найти такой номер $n(\varepsilon)$, начиная с которого $|x_k-A|<\varepsilon, \forall k\geq n(\varepsilon)$
+В задача 1 для сходящихся последовательностей, для заданного $ \varepsilon>0$ найти такой номер $ n(\varepsilon) $, начиная с которого $ |x_k-A|<\varepsilon, \forall k\geq n(\varepsilon) $
 
 #### Аналитическое решение 1
 
 Рассмотрим предел:
 
-$\lim\limits_{n\rightarrow\infty}{\sqrt {n^2 + 11} - n}$
+$ \lim\limits_{n\rightarrow\infty}{\sqrt {n^2 + 11} - n} $
 
 Вычислич предел каждого слагаемого отдельно:
 
-- $\lim\limits_{n\rightarrow\infty}{\sqrt {n^2 + 11}} =\infty$
-- $\lim\limits_{n\rightarrow\infty}{n} = \infty$
+- $ \lim\limits_{n\rightarrow\infty}{\sqrt {n^2 + 11}} =\infty $
+- $ \lim\limits_{n\rightarrow\infty}{n} = \infty $
 
-Поскольку выражение $\infty-\infty$ является неопределенностью, преобразуем его,  умножим выражение на $ \frac{\sqrt {n^2 + 11} + n}{ \sqrt {n + 11} + n}$ :
+Поскольку выражение $\infty-\infty$ является неопределенностью, преобразуем его,  умножим выражение на $ \frac{\sqrt {n^2 + 11} + n}{ \sqrt {n + 11} + n} $ :
 
-$\lim\limits_{n\rightarrow\infty}{\frac{(\sqrt {n^2 + 11} - n)(\sqrt {n^2 + 11} + n)}{{\sqrt {n^2 + 11} + n}}}$
+$ \lim\limits_{n\rightarrow\infty}{\frac{(\sqrt {n^2 + 11} - n)(\sqrt {n^2 + 11} + n)}{{\sqrt {n^2 + 11} + n}}} $
 
-$\lim\limits_{n\rightarrow\infty}{\frac{n^2 + 11 - n^2}{{\sqrt {n^2 + 11} + n}}}$
+$ \lim\limits_{n\rightarrow\infty}{\frac{n^2 + 11 - n^2}{{\sqrt {n^2 + 11} + n}}} $
 
-$\lim\limits_{n\rightarrow\infty}{\frac{\frac {11n}{n}}{{\sqrt {n^2 + 11} + n}}}$
+$ \lim\limits_{n\rightarrow\infty}{\frac{\frac {11n}{n}}{{\sqrt {n^2 + 11} + n}}} $
 
-$\lim\limits_{n\rightarrow\infty}{\frac{n \frac {11}{n}}{n\sqrt {1 + {\frac{11}{n^2} + n}}}}$
+$ \lim\limits_{n\rightarrow\infty}{\frac{n \frac {11}{n}}{n\sqrt {1 + {\frac{11}{n^2} + n}}}} $
 
-$\lim\limits_{n\rightarrow\infty}{\frac{\frac {11}{n}}{\sqrt {1 + {\frac{11}{n^2} + 1}}}}$
+$ \lim\limits_{n\rightarrow\infty}{\frac{\frac {11}{n}}{\sqrt {1 + {\frac{11}{n^2} + 1}}}} $
 
 
 Следовательно:
 
-$\lim\limits_{n\rightarrow\infty}{\frac{ {11}*{0}}{\sqrt {1 + {{11}*{0} + 1}}}} = 0$
+$ \lim\limits_{n\rightarrow\infty}{\frac{ {11}*{0}}{\sqrt {1 + {{11}*{0} + 1}}}} = 0 $
 
 Найдем предел:
-$\lim\limits_{n\rightarrow\infty}{0} = 0$
+$ \lim\limits_{n\rightarrow\infty}{0} = 0 $
 
 Найдем номер n(ε):
 
-$\lim\limits_{n\rightarrow\infty}{\sqrt {n^2 + 11} - n} = 0$
+$ \lim\limits_{n\rightarrow\infty}{\sqrt {n^2 + 11} - n} = 0 $
 
-|$\sqrt {n^2 + 11} - n$| = $\sqrt {n^2 + 11} - n$ < ε
+|$ \sqrt {n^2 + 11} - n$| = $\sqrt {n^2 + 11} - n $ < ε
 
-$\sqrt {n^2 + 11} $ < $ε + n$
+$ \sqrt {n^2 + 11} $ < $ ε + n $
 
-$\ 11 $ < $ε^2 + 2nε$
+$ \ 11 $ < $ε^2 + 2nε $
 
-$ \frac{ 11 - ε^2 }{2ε} $ < $\frac{  2nε }{2ε}$
+$ \frac{ 11 - ε^2 }{2ε} $ < $ \frac{  2nε }{2ε} $
 
-$ n(ε) $ > $\frac{ 11 - ε^2 }{2ε}$
+$ n(ε) $ > $\frac{ 11 - ε^2 }{2ε} $
 
-$1) $ $ε = 0,001$ : 
+$ 1) $ $ε = 0,001$ : 
 
-$ n(ε) = [ \frac{ 11 - ε^2 }{2ε}]$ = $[5499,9995]$ , $\forall{n}$ $\geqslant$ $5499,9995$
+$ n(ε) = [ \frac{ 11 - ε^2 }{2ε}] $ = $ [5499,9995] $ , $ \forall{n} $ $ \geqslant $ $5499,9995$
 
-все члены последовательности начиная с $x_{5500}$ будут удовлетворять неравенству:
+все члены последовательности начиная с $ x_{5500} $ будут удовлетворять неравенству:
 
-$0 - 0,001$ $<$ $x_n$ $<$ $0 + 0,001$
+$ 0 - 0,001$  $ < $ $ x_n $ $ < $ $ 0 + 0,001 $
 
-$-0,001$ $<$ $x_n$ $<$ $0,001$
+$ -0,001 $ $ < $ $ x_n $ $ < $ $ 0,001 $
 
 
-Ответ: $0$
+Ответ: $ 0 $ 
 
 
 
@@ -226,16 +229,14 @@ def plot_points(m):
 m = 20 # number of points
 plot_points(m)
 a = limit(((5*n**4 + n**3 + 1)/((n + 5)**5) - n**5), n, oo)
-limit_value = sequence(m) # Вычисляем предел последовательности
-plt.plot(m, limit_value, 'o', color='orange') # Строим точку предела последовательности
-plt.axhline(y=limit_value, linestyle='--', color='orange')
+
 print(a)
 ```
 
 
 <p style="text-align: center;">Рис. 1. Иллюстрация решения задачи.</p>
 
-![Alt text](Figure_2.3.png)
+![Alt text](Figure_2.4.png)
 
 
 <p style="text-align: center;">Рис. 2. Вывод программы в терминале.</p>
@@ -298,8 +299,15 @@ def factorial(n):
     m = 20 # number of points
     plot_points(m)
     a = limit(((3*(factorial(n)) + n**3)/(factorial(n) + 3**n)), n, oo)
-    limit_value = sequence(m) # Вычисляем предел последовательности
-    plt.plot(m, limit_value, 'o', color='orange') # Строим точку предела последовательности
-    plt.axhline(y=limit_value, linestyle='--', color='orange')
     print(a)
 ```
+
+
+<p style="text-align: center;">Рис. 1. Иллюстрация решения задачи.</p>
+
+
+
+
+<p style="text-align: center;">Рис. 2. Вывод программы в терминале.</p>
+
+
