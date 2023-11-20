@@ -1,64 +1,28 @@
 import math
-import numpy as np 
 import matplotlib.pyplot as plt
-
-# with open('file.txt1', 'r') as file:
-#     data = file.readlines()
-def f(x):
-    return math.log(x +1) - math.sqrt(4 - x*x)
-h = float(input())
-h = round(2/h)
-x = np.linspace(0,2,h)
-y = []
-
-x = []
-y = []
-for line in data:
-    line = line.strip().split()
-    x.append(float(line[0]))
-    y.append(float(line[1]))
-
-x0 = 0
-y0 = -1.036
-
-
-plt.plot(x, y, label='График функции')
-
-plt.axhline(y0,  label='Касательная', color='r', linestyle='--')
-
-plt.title('График функции с касательной, параллельной оси Ox')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend()
-plt.grid(True)
-plt.show()
+import numpy as np
 
 def f(x):
-    return math.log(x +1) - math.sqrt(4 - x*x)
+    return math.cos(x) * math.exp(-x*x)
 
 def f_pr(x):
-    return (1 / (x+1)) + (x / (math.sqrt(4 - x*x)))
-
+    return - math.exp(-x*x) * math.sin(x) - 2 * x * math.exp(-x*x) * math.cos(x)
 h = float(input())
-h = round(2/h)
-x = np.linspace(0,2,h)
+h = round(1/h)
+x = np.linspace(0,1,h)
 y = []
 for i in x:
     y.append(f(i))
-x1 = [0.0, 2.0]
-y1 = []
-m = 1.257
-n = -0.046
-for i in x:
-    y1.append(f(m) + f_pr(m) * (i - m))
-
-plt.title('График функции с касательной')
-plt.xlabel('x')
-plt.ylabel('y')
-
+x1 = [0.0, 1.0]
+y1 =[]
+for i in x1:
+    y1.append(f(0.2) + f_pr(0.2) * (i - 0.2))
+plt.title('График') 
+plt.xlabel('x') 
+plt.ylabel('y') 
 plt.grid()
-plt.plot(x,y)
+plt.plot(x, y)
 plt.plot(x1, y1)
-plt.plot(m, n, "ro")
+plt.plot(0.2, 0.941, "ro")
 plt.show()
 
