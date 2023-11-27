@@ -27,5 +27,6 @@ plt.grid()
 plt.plot(x, y)
 plt.plot(x1, yk(tochka_kasaniya, x1))
 plt.plot(tochka_kasaniya, f(tochka_kasaniya), "ro")
+
 plt.show()
 
