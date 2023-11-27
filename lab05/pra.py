@@ -337,11 +337,11 @@ y2 = [4, 3, 1, 8, 12]
 # plt.suptitle('suptitle')
 # plt.subplot(121)
 # plt.title('title')
-# plt.xlabel('xlabel')
-# plt.ylabel('ylabel')
-# plt.text(0.2, 0.2, 'text')
-# plt.annotate('annotate', xy=(0.2, 0.4), xytext=(0.6, 0.7),
-# arrowprops=dict(facecolor='black', shrink=0.05))
+# plt.xlabel('ylabel')
+# plt.ylabel('xlabel')
+# plt.text(0.6, 0.7, 'annotate')
+# plt.annotate('text', xy=(0.6, 0.7), xytext=(0.2, 0.4), 
+# arrowprops=dict(facecolor='black', shrink=0.07))
 # plt.subplot(122)
 # plt.title('title')
 # plt.xlabel('xlabel')
@@ -476,9 +476,22 @@ y2 = [4, 3, 1, 8, 12]
 
 #36
 # import numpy as np
-# np.random.seed(123)
-# vals = np.random.randint(10, size=(7, 7))
+# n = 123
+# vals = [rand1 for rand1 in n if size == (7, 7)]
+
 # plt.pcolor(vals)
+import matplotlib.pyplot as plt
+import numpy as np
+fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(9, 6))
+for ax in axes.flat:
+    ax.set_axis_off()
+    im = ax.imshow(np.random.random((7, 7)))
+    #fig.subplots_adjust(bottom=0.2, top=1.5, left=0.1, right=0.8, wspace=0.04, hspace=0.04)
+   
+plt.show()
+
+
+
 
 #37
 # np.random.seed(123)
