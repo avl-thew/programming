@@ -8,7 +8,7 @@
 
 <p style="text-align: center;">Курдюмова Виолетта Евгеньевна</p>
 
-<h1 style="text-align: center;">Функции одной перемнной. Предел и непрерывность функции.</h1>
+<h1 style="text-align: center;">Функции одной переменной. Предел и непрерывность функции.</h1>
 
 <p style="text-align: center;">Дисциплина «Математический анализ»</p>
 
@@ -34,7 +34,7 @@
 
 <p style="text-align: center;">Сургут 2023 г.</p>
 
-<h3 style="text-align: center;">Лабораторная работа №2. Функции одной перемнной. Предел и непрерывность функции.</h3>
+<h3 style="text-align: center;">Лабораторная работа №2. Функции одной переменной. Предел и непрерывность функции.</h3>
 <h3 style="text-align: center;">Вариант №12</h3>
 
 
@@ -100,6 +100,10 @@ plt.title('График функции f(x)')
 plt.grid()
 plt.show()
 ```
+#### Иллюстрация решения 2.1.1
+![Alt text](2.1.1.png)
+
+<p style="text-align: center;">Рис. 2.1.1. График решения задачи.</p>
 
 #### Аналитическое решение 2.1.2
 
@@ -116,6 +120,8 @@ $ x \leq \frac{1}{2} $
 Следовательно:
 
 $ D(g) = (-\infty; \frac{1}{2} ] $
+
+Ответ: $ D(f) = (-\infty; \frac{1}{2} ] $
 
 #### Программное решение 2.1.2
 ```python
@@ -141,7 +147,9 @@ plt.title('График функции f(x)')
 plt.grid()
 plt.show()
 ```
-#### Иллюстрация решения
+#### Иллюстрация решения 2.1.2
+![Alt text](2.1.2.png)
+<p style="text-align: center;">Рис. 2.1.2. График решения задачи.</p>
 
 
 
@@ -156,7 +164,7 @@ $ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{sinxln(1 + 4x)}} $
 
 $ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4xsinxln(1 + 4x)^\frac{1}{4x}}} $
 
-Исползуем второй замечательный предел :
+Используем второй замечательный предел :
 
 $ \lim\limits_{x\rightarrow\infty}{(1 + \frac{1}{x})^x = e}$
 
@@ -209,9 +217,14 @@ f = ((x * smp.asin(x))+(smp.sin(2*x**2)))/(smp.sin(x)*smp.log(1 + 4*x))
 lim = smp.limit(f, x, 0)
 print(f'Limit: {lim}')
 ```
-#### Иллюстрация решения
+#### Иллюстрация решения 2.2
 
+![Alt text](2.2.png)
 
+<p style="text-align: center;">Рис. 2.2. График решения задачи.</p>
+
+![Alt text](2023-12-05_01-50-48.png)
+<p style="text-align: center;">Рис. 2.2. Вывод программы в терминале.</p>
 
 #### Аналитическое решение 2.3
 $$ f(x) = 
@@ -220,10 +233,65 @@ $$ f(x) =
     {cos(x + 1)},     &  x \geq 0\  \end{cases}
 $$
 
+Исследуем точку стыка промежутков $x_0 = 0$:
+
+$ x_0 = 0 $
+
+$ \lim\limits_{x\rightarrow\ 0 +0}{\frac{1}{x^2} } $
+
+$ \lim\limits_{x\rightarrow\ 0 -0}{cos(x + 1)} $
+
+В этой точке пределы существует, но они разные, поэтому эта точка разрыва 1-го рода.
+
+Исследуем поведение функции на отрезке $ (-\infty;+\infty) $:
+
+$ \lim\limits_{x\rightarrow- \infty}{cos(x + 1)} $
+
+$ \lim\limits_{x\rightarrow+ \infty}{cos(x + 1)} $
+
+Пределы существуют на указаном промежутке, функция непрерывна.
+
+Ответ: точка $ x_0 = 0 $ является точкой разрыва 1-го рода.
 
 
 #### Программное решение 2.3
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from math import *
+from sympy import *
+# Определение символа x
+x = Symbol ('x')
+def f(x):
+    return(np.cos(x+1))
+def f(x):    
+    return 1/(x**2)
+# Создание массива значений x около точки разрыва
+x0 = np.linspace(-0.2 * np.pi, 0.2 * np.pi, 100)
+y0 = f(x0)
+# Построение графика
+plt.plot(x0, y0)
+plt.axvline(x=0, color='red', linestyle='--', label='x=0')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('График функции f(x)')
+plt.legend()
+plt.grid()
+plt.show()
+f = 1/(x**2)
+f = cos(x + 1)
+lim_left = limit(f, x, -oo, dir='-')
+# по умолчанию вычисляется предел справа
+lim_right = limit(f, x, oo)
+print(f'Предел слева в точке x=0: {lim_left}')
+print(f'Предел справа в точке x=0: {lim_right}')
+```
+#### Иллюстрация решения 2.3
 
+![Alt text](2.3.png)
 
+<p style="text-align: center;">Рис. 2.2. График решения задачи.</p>
 
-#### Иллюстрация решения
+![Alt text](2023-12-05_01-45-57.png)
+![Alt text](2023-12-05_01-45-09.png)
+<p style="text-align: center;">Рис. 2.2. Вывод программы в терминале.</p>
