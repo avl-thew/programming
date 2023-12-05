@@ -86,9 +86,18 @@ from sympy import *
 def f(x):
     return (2*x)/(x - 7)
 # Создание массива значений x
-x = np.linspace(-100, 7, 200)
-x = np.linspace(7, 100, 200)
+x = np.linspace(-100, 6.9, 200)
 # Вычисление значений y для каждого значения x
+y = []
+for i in x:
+    y.append(f(i))
+# Построение графика
+plt.plot(x, y, linewidth=2)
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('График функции f(x)')
+plt.grid()
+x = np.linspace(8.1, 100, 200)
 y = []
 for i in x:
     y.append(f(i))
@@ -101,8 +110,8 @@ plt.grid()
 plt.show()
 ```
 #### Иллюстрация решения 2.1.1
-![Alt text](2.1.1.png)
 
+![Alt text](212121212121.png)
 <p style="text-align: center;">Рис. 2.1.1. График решения задачи.</p>
 
 #### Аналитическое решение 2.1.2
@@ -160,7 +169,7 @@ plt.show()
 
 $ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{sinxln(1 + 4x)}} $
 
-Поскольку выражение $\frac{0}{0}$ является неопределенностью, преобразуем его:
+Поскольку выражение $\frac{0}{0}$ является неопределенностью, преобразуем его и возведем в степень $\frac{1}{4x}$, а также раздеим выражение на $\frac{1}{4x}$:
 
 $ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4xsinxln(1 + 4x)^\frac{1}{4x}}} $
 
@@ -168,13 +177,11 @@ $ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4xsinxln(1 + 4x)^\frac
 
 $ \lim\limits_{x\rightarrow\infty}{(1 + \frac{1}{x})^x = e}$
 
-$ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4ln(e)xsinx}} $
+$ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4ln(e)xsinx}}= \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4xsinx}} $
 
-$ \lim\limits_{x\rightarrow\ 0}{\frac{xarcsinx + sin2x^2}{4xsinx}} $
+Группируем и используем первый замечательный предел. Умножим и разделим первое слагаемое в числителе на $2x^2$, второе слагаемое в числителе и знаменатель на $x$:
 
-Группируем и используем первый замечательный предел:
-
-$ \frac{1}{4}\lim\limits_{x\rightarrow\ 0}{\frac{2x^2\frac{sin2x^2}{2x^2}+x\frac{arcsinx}{x}}{x^2\frac{sinx}{x}}} $
+$ \frac{1}{4}\lim\limits_{x\rightarrow\ 0}{\frac{2x^2\frac{sin2x^2}{2x^2}+x^2\frac{arcsinx}{x}}{x^2\frac{sinx}{x}}} $
 
 $ \frac{1}{4}\lim\limits_{x\rightarrow\ 0}{3} $
 
@@ -237,21 +244,14 @@ $$
 
 $ x_0 = 0 $
 
-$ \lim\limits_{x\rightarrow\ 0 +0}{\frac{1}{x^2} } $
+$ \lim\limits_{x\rightarrow\ 0 -0}{\frac{1}{x^2} = \infty } $
 
-$ \lim\limits_{x\rightarrow\ 0 -0}{cos(x + 1)} $
+$ \lim\limits_{x\rightarrow\ 0 +0}{cos(x + 1)} $
 
-В этой точке пределы существует, но они разные, поэтому эта точка разрыва 1-го рода.
+В этой точке существует только один предел, поэтому эта точка разрыва 2-го рода.
 
-Исследуем поведение функции на отрезке $ (-\infty;+\infty) $:
 
-$ \lim\limits_{x\rightarrow- \infty}{cos(x + 1)} $
-
-$ \lim\limits_{x\rightarrow+ \infty}{cos(x + 1)} $
-
-Пределы существуют на указаном промежутке, функция непрерывна.
-
-Ответ: точка $ x_0 = 0 $ является точкой разрыва 1-го рода.
+Ответ: точка $ x_0 = 0 $ является точкой разрыва 2-го рода.
 
 
 #### Программное решение 2.3
@@ -263,12 +263,15 @@ from sympy import *
 # Определение символа x
 x = Symbol ('x')
 def f(x):
-    return(np.cos(x+1))
-def f(x):    
-    return 1/(x**2)
+    if x < 0:
+        return 1/(x**2)
+    else:
+        return(np.cos(x+1))
 # Создание массива значений x около точки разрыва
 x0 = np.linspace(-0.2 * np.pi, 0.2 * np.pi, 100)
-y0 = f(x0)
+y0 = []
+for i in x0:
+    y0.append(f(i))
 # Построение графика
 plt.plot(x0, y0)
 plt.axvline(x=0, color='red', linestyle='--', label='x=0')
@@ -278,20 +281,20 @@ plt.title('График функции f(x)')
 plt.legend()
 plt.grid()
 plt.show()
-f = 1/(x**2)
-f = cos(x + 1)
-lim_left = limit(f, x, -oo, dir='-')
+def f(x):
+    if x<0:
+        return 1/(x**2)
+    else:
+        return(cos(x+1))
+lim_left = limit(f, x, 0, dir='-')
 # по умолчанию вычисляется предел справа
-lim_right = limit(f, x, oo)
+lim_right = limit(f, x, 0)
 print(f'Предел слева в точке x=0: {lim_left}')
 print(f'Предел справа в точке x=0: {lim_right}')
 ```
 #### Иллюстрация решения 2.3
 
-![Alt text](2.3.png)
+![Alt text](33333333.png)
 
 <p style="text-align: center;">Рис. 2.2. График решения задачи.</p>
 
-![Alt text](2023-12-05_01-45-57.png)
-![Alt text](2023-12-05_01-45-09.png)
-<p style="text-align: center;">Рис. 2.2. Вывод программы в терминале.</p>
