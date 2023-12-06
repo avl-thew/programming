@@ -475,21 +475,14 @@ y2 = [4, 3, 1, 8, 12]
 
 
 #36
-# import numpy as np
-# n = 123
-# vals = [rand1 for rand1 in n if size == (7, 7)]
-
-# plt.pcolor(vals)
-import matplotlib.pyplot as plt
 import numpy as np
-fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(9, 6))
-for ax in axes.flat:
-    ax.set_axis_off()
-    im = ax.imshow(np.random.random((7, 7)))
-    #fig.subplots_adjust(bottom=0.2, top=1.5, left=0.1, right=0.8, wspace=0.04, hspace=0.04)
-   
-plt.show()
-
+n = 123
+vals = []
+for i in range(7):
+    vals.append([])
+    for j in range(7):
+        vals[i].append(j)
+plt.pcolor(vals)
 
 
 
