@@ -295,6 +295,6 @@ print(f'Предел справа в точке x=0: {lim_right}')
 
 <p style="text-align: center;">Рис. 2.3. График решения задачи.</p>
 
-![Alt text](2023-12-05_01-45-09-1.png)
+![Alt text](2023-12-06_20-06-19.png)
 
 <p style="text-align: center;">Рис. 2.3. Вывод программы в терминале.</p>
