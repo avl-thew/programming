@@ -97,7 +97,7 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title('График функции f(x)')
 plt.grid()
-x = np.linspace(8.1, 100, 200)
+x = np.linspace(7.1, 100, 200)
 y = []
 for i in x:
     y.append(f(i))
@@ -246,9 +246,9 @@ $ x_0 = 0 $
 
 $ \lim\limits_{x\rightarrow\ 0 -0}{\frac{1}{x^2} = \infty } $
 
-$ \lim\limits_{x\rightarrow\ 0 +0}{cos(x + 1)} $
+$ \lim\limits_{x\rightarrow\ 0 +0}{cos(x + 1)} = cos1 $
 
-В этой точке существует только один предел, поэтому эта точка разрыва 2-го рода.
+В этой точке существует только один односторонний предел, поэтому эта точка разрыва 2-го рода.
 
 
 Ответ: точка $ x_0 = 0 $ является точкой разрыва 2-го рода.
@@ -281,14 +281,11 @@ plt.title('График функции f(x)')
 plt.legend()
 plt.grid()
 plt.show()
-def f(x):
-    if x<0:
-        return 1/(x**2)
-    else:
-        return(cos(x+1))
-lim_left = limit(f, x, 0, dir='-')
+f1 = 1/(x**2)
+lim_left = limit(f1, x, 0, dir='-')
 # по умолчанию вычисляется предел справа
-lim_right = limit(f, x, 0)
+f2 = cos(x+1)
+lim_right = limit(f2, x, 0)
 print(f'Предел слева в точке x=0: {lim_left}')
 print(f'Предел справа в точке x=0: {lim_right}')
 ```
