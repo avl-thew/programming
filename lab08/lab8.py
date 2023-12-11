@@ -2,17 +2,12 @@
 
 
 # замыкание
-def fread(filename: str):
-    file = open(filename, "r")
-    def read():
-        return file.readline()
-    return read
-get_line = fread("text.txt")
-print(get_line())
+
+
 
 # декоратор
 def logger(filename):
-    my_file = open('py_log.log', 'w+')
+    my_file = open(filename, 'w+')
     def my_decorator(func):
         def wrapper(*args, **kwargs):
             my_file.write(f"Вызов функции {func} с аргументами {args}, {kwargs}"'\n')
@@ -25,7 +20,22 @@ def logger(filename):
 @logger('my_file')
 def mult(num1, num2):
     return num1 * num2
-print(mult(4,7))
+
+
+@logger('nup.log')
+def fread(filename: str):
+    file = open(filename, "r")
+    def read():
+        return file.readline()
+    return read
+
+
+if __name__=="__main__":
+    get_line = fread("text.txt")
+    print(get_line())
+    print(get_line())
+    print(get_line())
+
 
 
 
