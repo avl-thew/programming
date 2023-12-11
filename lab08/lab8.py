@@ -1,10 +1,4 @@
 
-
-
-# замыкание
-
-
-
 # декоратор
 def logger(filename):
     my_file = open(filename, 'w+')
