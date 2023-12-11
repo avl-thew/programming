@@ -11,21 +11,21 @@ get_line = fread("text.txt")
 print(get_line())
 
 # декоратор
-def my_decorator(*args):
-    def logger(func):
+def logger(filename):
+    my_file = open('py_log.log', 'w+')
+    def my_decorator(func):
         def wrapper(*args, **kwargs):
-            print(f"Вызов функции {func} с аргументами {args}, {kwargs}")
+            my_file.write(f"Вызов функции {func} с аргументами {args}, {kwargs}"'\n')
             result = func(*args, **kwargs)
-            print(f"Функция {func} вернула результат: {result}")
+
+            my_file.write(f"Функция {func} вернула результат: {result}")
             return result
         return wrapper
-    return logger
-# my_file = open(('py_log.log'))
-    @logger
-    # (open('py_log.log', 'w+'))
-    def mult(num1, num2):
-        return num1 * num2
-    print(mult(4,7))
+    return my_decorator
+@logger('my_file')
+def mult(num1, num2):
+    return num1 * num2
+print(mult(4,7))
 
 
 
