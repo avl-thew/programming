@@ -1,6 +1,6 @@
 import typer
 import re
-from labpackage import closure, gen, unp
+from lab101 import closure, gen, unp
 
 app = typer.Typer()
 
@@ -8,13 +8,13 @@ app = typer.Typer()
 def run():
     typer.echo(f"Список модулей")
     typer.echo(f"closure: 1")
-    typer.echo(f"pngen: 2")
+    typer.echo(f"gen: 2")
     typer.echo(f"unpack: 3")
     module = typer.prompt("Введите номер модуля")
     modules = {
         "1": closure,
-        "2": pngen,
-        "3": unpack,
+        "2": gen,
+        "3": unp,
     }
     select_function(modules[module])
 
