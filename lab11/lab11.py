@@ -9,10 +9,8 @@ class Game:
         self.game_menu.geometry("250x250")
         self.game_menu.title("Tik Tak Toe")
         title = tk.Label(self.game_menu, text="Tik Tak Toe", background="#232a2f", fg="white")
-        singleplayer = tk.Button(self.game_menu, text="Single Player", background="#4e7da5",
-                                width=30, height=2, command=lambda x="PC": self.play(x))
-        multiplayer = tk.Button(self.game_menu, text="Multi Player", background="#4e7da5",
-                                width=30, height=2, command=lambda x="Human": self.play(x))
+        singleplayer = tk.Button(self.game_menu, text="Single Player", background="#4e7da5", width=30, height=2, command=lambda x="PC": self.play(x))
+        multiplayer = tk.Button(self.game_menu, text="Multi Player", background="#4e7da5", width=30, height=2, command=lambda x="Human": self.play(x))
         title.pack(side="top", pady="10px")
         singleplayer.pack(side="top", pady="10px")
         multiplayer.pack(side="top", pady="10px")
@@ -140,7 +138,7 @@ class Game:
         board_window = tk.Tk()
         board_window.bind("<Destroy>", self.game_menu.destroy())
         board_window.configure(bg="#232a2f")
-        board_window.geometry("350x290")
+        board_window.geometry("290x250")
         board_window.resizable(width=False, height=False)
         board_window.title(f"Tik Tak Toe")
         if opponent == "PC":
