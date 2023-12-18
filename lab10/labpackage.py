@@ -1,41 +1,3 @@
-# import typer
-# import re
-# from lab101 import closure, gen, unp
-
-# app = typer.Typer()
-
-    
-# @app.command()
-# def run():
-#     typer.echo(f"Список модулей")
-#     typer.echo(f"closure: 1")
-#     typer.echo(f"gen: 2")
-#     typer.echo(f"unpack: 3")
-#     module = typer.prompt("Введите номер модуля")
-#     modules = {
-#         "1": closure,
-#         "2": gen,
-#         "3": unp,
-#     }
-#     select_function(modules[module])
-
-
-# def select_function(module: str):
-    
-#     funcs = [func for func in dir(module) if re.match(r"\b[a-zA-Z]+", func)]
-#     for i, func in enumerate(funcs):
-#         typer.echo(f"{func}: {i}")
-#     func = typer.prompt("Введите номер функции")
-#     args = typer.prompt("Введите аргументы")
-#     exec(f"typer.echo(module.{funcs[int(func)]}({args}))")
-#     gen = prime_num()
-#     s = []
-#     for _ in range(5):
-#         s.append(next(gen))
-
-# if __name__ == "__main__":
-#     typer.run(app())  
-
 
 import typer
 import re
@@ -49,41 +11,44 @@ def run():
     typer.echo(f"closure: 1")
     typer.echo(f"gen: 2")
     typer.echo(f"unp: 3")
-    module = typer.prompt("Введите номер модуля")
-    modules = {
-        "1": closure,
-        "2": gen,
-        "3": unp,
-    }
-    select_function(modules[module])
-
-
-def select_function(module: str):
-    funcs = [func for func in dir(module) if re.match(r"\b[a-zA-Z]+", func)]
-    for i, func in enumerate(funcs):
-        typer.echo(f"{func}: {i}")
+    # module = typer.prompt("Введите номер модуля")
     func = typer.prompt("Введите номер функции")
+    funcs = {
+        "1": closure.logger,
+        "2": generator,
+        "3": unp.unp,
+    }
+    for i, f in funcs.items():
+        typer.echo(f"{f}: {i}")
     args = typer.prompt("Введите аргументы")
-    #exec(f"typer.echo(module.{funcs[int(func)]}({args}))")
+   
+    # typer.echo(
+    #     funcs[func](args)
+    # )
 
-def is_prime(n: int) -> bool:
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5)+1):
-        if n % i == 0:
-            return False
-        return True
+    if func == "1":
+        typer.echo(
+        funcs[func](args)
+    )
+        
 
+    if func == "2":
+        typer.echo(
+        funcs[func](int(args))
+        )
+        
+    if func == "3": 
+        # exec(f"l ={args})")
+    
+        exec(f"typer.echo(funcs[func]({args}))")
 
 def generator(limit: int):
-    # gen = prime_num()
+    g = gen.prime_num()
     s = []
-    for i in range(2, limit + 1):
-        if is_prime(i):
-            s.append(i)
-    # return s 
-    typer.echo(f"простые числа до {limit}: {primes}")
-    
+    for _ in range(limit):
+        s.append(next(g))
+    return s 
+    typer.echo(s)
 
 if __name__ == "__main__":
     app()
