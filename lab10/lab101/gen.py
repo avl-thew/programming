@@ -11,8 +11,3 @@ def prime_num():
             yield nm
         nm += 1
 
-# gen = prime_num()
-# values = []
-
-# for _ in range(5):
-#     values.append(next(gen))
