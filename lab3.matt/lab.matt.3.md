@@ -150,6 +150,7 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.title('График f(x)')
 plt.grid(True)
+plt.gca().set_aspect('equal')
 plt.show()
 ```
 
