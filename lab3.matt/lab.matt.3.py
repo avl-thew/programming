@@ -1,43 +1,3 @@
-#1
-import matplotlib.pyplot as plt 
-import numpy as np
-
-#создаем массив значения параметра t
-t = np.linspace(-10,10,500) #задаем диапозон значений от -10 до 10
-
-# вычисляем x и y  
-
-x = ((t+1)**2)/4
-y = ((t-1)**2)/4
-
-#используем объекты figure и axes из matplotlib
-fig, ax = plt.subplots()
-#строим кривую
-ax.plot(x,y)
-#заголовок и метки осей
-ax.set_title('Параметрическая кривая')
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.grid(True)
-plt.show()
-
-# # строим график
-
-# plt.plot(x,y)
-
-# #добавляем названия осей и заголовок графика
-
-# plt.xlabel('x')
-# plt.ylabel('y')
-# plt.title('Параметрическая кривая')
-
-# # отображаем график
-# plt.show()
-
-
-
-
-#2
 import matplotlib.pyplot as plt 
 import numpy as np
 
@@ -63,4 +23,5 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.title('График f(x)')
 plt.grid(True)
+plt.gca().set_aspect('equal')
 plt.show()

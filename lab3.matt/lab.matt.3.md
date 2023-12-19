@@ -89,7 +89,7 @@ plt.show()
 
 ![Alt text](1.22.png)
 
-<p style="text-align: center;">Рис. 1. График решения задачи 1.</p>
+<p style="text-align: center;">Рис. 1. Параметрически заданая кривая.</p>
 
 
 #### Задание 2
@@ -153,6 +153,6 @@ plt.grid(True)
 plt.show()
 ```
 
-![Alt text](222222.png)
+![Alt text](Figure_1111.png)
 
-<p style="text-align: center;">Рис. 2. График решения задачи 2.</p>
+<p style="text-align: center;">Рис. 2. Иллюстрация решения задачи 2.</p>
