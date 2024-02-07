@@ -4,6 +4,12 @@ class Sphere:
         
         self.material = material
 
+    def set_material(self, material):
+        self.material = material
+    
+    def set_radius(self, radius):
+        self.radius = radius
+
     def calculate_volume(self):
         return (4/3) * 3.14 * self.radius
 
