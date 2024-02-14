@@ -1,8 +1,3 @@
-# >>> unpack([None, [1, ({2, 3}, {'foo': 'bar'})]])
-# [None, 1, 2, 3, 'foo', 'bar']
-
-l = [None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]]
-# l = [[]]
 def unp(l):
     result = []
     for item in l:
@@ -20,21 +15,10 @@ def unp(l):
             result.append(item)
     return result
 
-
-
-
-def func(i):
-    if i == 1:
-        return 0.3
-    if i == 2:
-        return -1.5
-    return func(i - 1) * func(i - 2) * ((i - 1) ** 2) / ((i + 1) ** 3)
-
-
-
-
-if __name__ == "__main__":
-    print(unp(l))
-    # for i in range(1, 10):
-    #     print(func(i))
-
+def test_unp():
+    l = [None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]]
+    expected_result = [None, 1, 2, 3, 'foo', 'bar', 'a', 1]
+    assert unp(l) == expected_result
+    enp_l = [[1]]
+    assert unp(enp_l) == []
+    
