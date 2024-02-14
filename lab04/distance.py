@@ -23,7 +23,10 @@ distances['Moscow_and_Paris'] = round(MoscowParis, 1)
 distances['London_and_Paris'] = round(LondonParis, 1)
 print(distances)
 
-11111111
+def distance(a: tuple, b: tuple) -> float:
+    return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+    
+    
 
 
 
