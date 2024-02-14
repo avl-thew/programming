@@ -1,5 +1,6 @@
+
 # декоратор
-def logger(filename):
+def logger(filename = "nup.log1"):
     my_file = open(filename, 'w+')
     def my_decorator(func):
         def wrapper(*args, **kwargs):
@@ -15,7 +16,7 @@ def mult(num1, num2):
     return num1 * num2
 
 
-@logger('nup.log')
+@logger()
 def fread(filename: str):
     file = open(filename, "r")
     def read():
@@ -29,3 +30,23 @@ if __name__=="__main__":
     print(get_line())
     print(get_line())
 
+l = [None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]]
+@logger()
+def unp(l):
+    result = []
+    for item in l:
+        if item is None:
+             result.append(None)
+        elif isinstance(item, (int, str)):   
+            result.append(item)
+        elif isinstance(item, (list, tuple, set)):
+            if item:
+                result.extend((unp(item)))    
+        elif isinstance(item, dict):
+            if item:
+                result.extend(unp(item.items()))
+        else:
+            result.append(item)
+    return result
+
+unp(l)

@@ -1,2 +1,8 @@
-Вызов функции <function fread at 0x7fa5775e9280> с аргументами ('text.txt',), {}
-Функция <function fread at 0x7fa5775e9280> вернула результат: <function fread.<locals>.read at 0x7fa5775e93a0>
+����� ������� <function unp at 0x00000291BF97EAF0> � ����������� ([None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]],), {}
+����� ������� <function unp at 0x00000291BF97EAF0> � ����������� ([1, [], ({2, 3}, {'foo': 'bar', 'a': 1})],), {}
+����� ������� <function unp at 0x00000291BF97EAF0> � ����������� (({2, 3}, {'foo': 'bar', 'a': 1}),), {}
+����� ������� <function unp at 0x00000291BF97EAF0> � ����������� ({2, 3},), {}
+������� <function unp at 0x00000291BF97EAF0> ������� ���������: [2, 3]����� ������� <function unp at 0x00000291BF97EAF0> � ����������� (dict_items([('foo', 'bar'), ('a', 1)]),), {}
+����� ������� <function unp at 0x00000291BF97EAF0> � ����������� (('foo', 'bar'),), {}
+������� <function unp at 0x00000291BF97EAF0> ������� ���������: ['foo', 'bar']����� ������� <function unp at 0x00000291BF97EAF0> � ����������� (('a', 1),), {}
+������� <function unp at 0x00000291BF97EAF0> ������� ���������: ['a', 1]������� <function unp at 0x00000291BF97EAF0> ������� ���������: ['foo', 'bar', 'a', 1]������� <function unp at 0x00000291BF97EAF0> ������� ���������: [2, 3, 'foo', 'bar', 'a', 1]������� <function unp at 0x00000291BF97EAF0> ������� ���������: [1, 2, 3, 'foo', 'bar', 'a', 1]������� <function unp at 0x00000291BF97EAF0> ������� ���������: [None, 1, 2, 3, 'foo', 'bar', 'a', 1]
