@@ -72,3 +72,7 @@ gcc -shared -fPIC -o libfirst.so hello.o
 ```
 gcc test.c -o test -lfirst -L.
 ```
+gcc test.c -c -o test.o
+gcc hello.c -c -fpic -o hello.o
+gcc hello.o -shared -o libhello.so
+gcc test.o libhello.so -o test -L. -lhello
