@@ -72,7 +72,7 @@ int main()
     int n;
     printf("n -> ");
     scanf("%d", &n);
-    int arr[n];
+    int *arr = (int * )malloc(sizeof(int)*n);
     fill(n,arr);
 
     printt(n, arr);
@@ -81,6 +81,6 @@ int main()
 
     printt(n, arr);
     printf("\n");
-    
+    free(arr);
     return 0;
 }
