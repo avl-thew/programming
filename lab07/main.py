@@ -19,6 +19,6 @@ def test_unp():
     l = [None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]]
     expected_result = [None, 1, 2, 3, 'foo', 'bar', 'a', 1]
     assert unp(l) == expected_result
-    enp_l = [[1]]
+    enp_l = [[]]
     assert unp(enp_l) == []
     

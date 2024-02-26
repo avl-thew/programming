@@ -1,8 +1,8 @@
 # >>> unpack([None, [1, ({2, 3}, {'foo': 'bar'})]])
 # [None, 1, 2, 3, 'foo', 'bar']
 
-l = [None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]]
-# l = [[]]
+# l = [None, [1, [], ({2, 3}, {'foo': 'bar', 'a': 1})]]
+l = [[]]
 def unp(l):
     result = []
     for item in l:

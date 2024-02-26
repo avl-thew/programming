@@ -19,3 +19,18 @@
 $$ w_i = w_{i-1}w_{i-2}\frac{(i-1)^2}{(i+1)^3}. w_1 = 0.3, w_2 = -1.5.$$
 
 ![Alt text](image.png)
+
+## инструкция по запуску pytest
+
+
+введите для установки pytest:
+
+```python
+pip install -U pytest
+```
+
+далее, для того, чтобы запустить программу, введите:
+
+```python
+pytest main.py
+```
