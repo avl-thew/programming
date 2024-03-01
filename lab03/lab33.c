@@ -20,14 +20,16 @@ void printt(int n, int a[])
 void printff(int n, int arr[])
 {
     int imax1, imax2, imax3;
-    int max1 = arr[0], max2 = arr[0], max3 = arr[0];
-    for (int i = 1; i < n; i++)
+    int max1 = -1, max2 = -1, max3 = -1;
+    for (int i = 0; i < n; i++)
     {
         if (arr[i] > max1)
         {
             max3 = max2;
             max2 = max1;
             max1 = arr[i];
+            imax3=imax2;
+            imax2=imax1;
             imax1 = i;
         }
         else if (arr[i] > max2)
@@ -36,6 +38,7 @@ void printff(int n, int arr[])
             max3 = max2;
 
             max2 = arr[i];
+            imax3=imax2;
             imax2 = i;
         }
         else if (arr[i] > max3)
