@@ -1,23 +1,14 @@
+import math
 class Sphere:
-    def __init__(self, radius, material):
+    def init(self, radius, material):
         self.radius = radius
-        
         self.material = material
-
-    def set_material(self, material):
-        self.material = material
-    
-    def set_radius(self, radius):
-        self.radius = radius
-
     def calculate_volume(self):
-        return (4/3) * 3.14 * self.radius
-
+        return (4/3) * math.pi * self.radius ** 3
     def calculate_surface_area(self):
-        return 4 * 3.14 * self.radius * self.radius
-
+        return 4 * math.pi * self.radius ** 2
     def calculate_mass(self):
-        #расчет массы в зависимости от материала
+        # Добавить расчет массы в зависимости от материала
         if self.material == 'сталь':
             density = 7850 #плотность стали
         elif self.material == 'дерево':

@@ -1,17 +1,14 @@
+import math
 class Tetrahedron:
-    def __init__(self, length, material):
-        self.length = length
-        
+    def init(self, side_length, material):
+        self.side_length = side_length
         self.material = material
-
     def calculate_volume(self):
-        return (2**1/2) * (self.length * self.length * self.length)/12
-
+        return (self.side_length ** 3) / (6 * math.sqrt(2))
     def calculate_surface_area(self):
-        return (3**1/2) * self.length * self.length
-
+        return math.sqrt(3) * self.side_length ** 2
     def calculate_mass(self):
-        #расчет массы в зависимости от материала
+        # Добавить расчет массы в зависимости от материала
         if self.material == 'сталь':
             density = 7850 #плотность стали
         elif self.material == 'дерево':
