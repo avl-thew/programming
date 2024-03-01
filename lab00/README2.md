@@ -69,10 +69,23 @@ gcc -shared -fPIC -o libfirst.so hello.o
 ```
 
 Когда используются статическая библиотека и динамическая библиотека, параметры компиляции GCC одинаковы: 
-```
-gcc test.c -o test -lfirst -L.
-```
-gcc test.c -c -o test.o
-gcc hello.c -c -fpic -o hello.o
+Чтобы создать динамическую библиотеку, введите эти команды поочередно и она запуститься с помощью файла Makefile:
+
+```Python
+
+gcc libfirst.c -c -fpic -o hello.o
+
 gcc hello.o -shared -o libhello.so
+
 gcc test.o libhello.so -o test -L. -lhello
+
+./test
+
+sudo cp libhello.so ~/../../usr/bin
+
+./test
+
+make
+
+./app
+```
