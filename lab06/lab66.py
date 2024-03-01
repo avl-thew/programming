@@ -47,13 +47,37 @@ def F(a):
     :return: количество едениц в числе
 
     >>> F(82020 + 42017 + 26 - 1)
-    5
+    10
     """
     a_2 = bin(a)[2:]
     k = a_2.count('1')
     return k
 
 print(F(82020 + 42017 + 26 - 1))
+
+import doctest
+def F(n):
+    """
+    Проверяет, является ли число n простым.
+
+    >>> F(2)
+    True
+    >>> F(4)
+    False
+    >>> F(13)
+    True
+    >>> F(15)
+    False
+    """
+    for d in range(2, int(n**0.5) + 1):
+        if n % d == 0:
+            return False
+    return True
+    m = 0
+    for n in range(245690 , 245756 + 1):  
+        m += 1
+        if f(n) == True:
+            print(m, n)
 
 if __name__ == '__main__':
     doctest.testmod(name='F', verbose=True)
