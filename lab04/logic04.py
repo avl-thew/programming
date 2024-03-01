@@ -1,5 +1,5 @@
 class Family:
-    def init(self, member_names, member_heights):
+    def __init__(self, member_names, member_heights):
         self.members = member_names
         self.heights = member_heights
     

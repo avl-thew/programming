@@ -1,10 +1,10 @@
 from distance import distance
-from logic04 import Family 
+from logic04 import Family
+from circle import Logic
 
-
-
-
-
+a = 550
+b = 600
+print()
 
 
 # Создаем экземпляр класса Family
@@ -17,3 +17,7 @@ print('Рост отца:', father_height)
 # Вычисляем и выводим общую сумму всех высот в семье
 total_height = my_family.get_total_height()
 print('Общий рост семьи:', total_height)
+
+
+logic = Logic()
+print(logic.calculate_area())
