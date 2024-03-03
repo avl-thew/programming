@@ -1,33 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.messagebox as mb
-import math
+from parallelepiped import Parallelepiped
+from tetrahedron import Tetrahedron
+from sphere import Sphere
+
 # import docx
 # import openpyxl
 
 # Словарь с плотностями разных материалов
 densities = {'Дерево': 500, 'Металл': 7800, 'Пластик': 1300}
-
-# Функция для расчета параметров параллелепипеда
-def calculate_parallelepiped(a, b, c, density):
-    V = a * b * c
-    S = 2 * (a*b + b*c + a*c)
-    m = V * density
-    return V, S, m
-
-# Функция для расчета параметров тетраэдра 
-def calculate_tetrahedron(a, density):
-    V = (a**3) / (6 * math.sqrt(2)) 
-    S = math.sqrt(3) * (a**2)
-    m = V * density
-    return V, S, m
-    
-# Функция для расчета параметров шара
-def calculate_sphere(R, density):
-    V = (4/3) * math.pi * (R**3)
-    S = 4 * math.pi * (R**2) 
-    m = V * density
-    return V, S, m
 
 # Функция для открытия окна ввода параметров    
 def open_input_window(root, shape, density):
@@ -53,7 +35,8 @@ def open_input_window(root, shape, density):
             a = float(a_entry.get())
             b = float(b_entry.get())
             c = float(c_entry.get())
-            V, S, m = calculate_parallelepiped(a, b, c, density)
+            p = Parallelepiped()
+            V, S, m = p.calculate_parallelepiped(a, b, c, density)
             input_window.withdraw()
             open_result_window(root, V, S, m)
             
@@ -69,7 +52,8 @@ def open_input_window(root, shape, density):
         
         def calculate():
             a = float(a_entry.get())
-            V, S, m = calculate_tetrahedron(a, density)
+            t = Tetrahedron()
+            V, S, m = t.calculate_tetrahedron(a, density)
             input_window.withdraw()
             open_result_window(root, V, S, m)
             
@@ -85,7 +69,8 @@ def open_input_window(root, shape, density):
         
         def calculate():
             R = float(R_entry.get())
-            V, S, m = calculate_sphere(R, density)
+            s = Sphere()
+            V, S, m = s.calculate_sphere(R, density)
             input_window.withdraw()
             open_result_window(root, V, S, m)
             
@@ -144,8 +129,7 @@ def main():
   else:
     density = densities[material.get()]
     
-  input_button = tk.Button(root, text='Ввести параметры', 
-                           command=lambda: open_input_window(root, shape.get(), density))
+  input_button = tk.Button(root, text='Ввести параметры', command=lambda: open_input_window(root, shape.get(), density))
   input_button.pack()
 
   root.mainloop()
