@@ -11,16 +11,16 @@ from sphere import Sphere
 # import openpyxl
 
 def save_to_doc(result):
-    doc = Document()
-    doc.add_paragraph(f'Результат: {result}')
-    doc.save('результат.docx')
+        doc = Document()
+        doc.add_paragraph(f'Результат: {result}')
+        doc.save('результат.docx')
 
 def save_to_xls(result):
-    wb = Workbook()
-    ws = wb.active
-    ws['A1'] = 'Результат:'
-    ws['B1'] = result
-    wb.save('результат.xlsx')
+        wb = Workbook()
+        ws = wb.active
+        ws['A1'] = 'Результат:'
+        ws['B1'] = result
+        wb.save('результат.xlsx')
 
 # Словарь с плотностями разных материалов
 densities = {'Дерево': 500, 'Металл': 7800, 'Пластик': 1300}
@@ -104,6 +104,18 @@ def open_result_window(root, V, S, m):
 
   ok_button = tk.Button(result_window, text='ОК', command=root.destroy)
   ok_button.grid(row=3, column=0)
+  
+  def open_result_window(root, V, S, m):
+    def ok_button_clicked():
+        V = V
+        S = S 
+        m = m
+        save_to_doc(V)
+        save_to_xls(S) 
+        open_result_window(root, V, S, m)
+        root.destroy()   
+
+    ok_button = tk.Button(result_window, text='ОК', command=ok_button_clicked)
 
 def main():
   root = tk.Tk()
@@ -142,10 +154,10 @@ def main():
     density = float(custom_density)
   else:
     density = densities[material.get()]
-    
+  
   input_button = tk.Button(root, text='Ввести параметры', command=lambda: open_input_window(root, shape.get(), density))
-  input_button.pack()
-
+  input_button.pack()  
+  
   root.mainloop()
 
 if __name__ == '__main__':
