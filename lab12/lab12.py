@@ -1,12 +1,26 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.messagebox as mb
+from docx import Document
+from openpyxl import Workbook
 from parallelepiped import Parallelepiped
 from tetrahedron import Tetrahedron
 from sphere import Sphere
 
 # import docx
 # import openpyxl
+
+def save_to_doc(result):
+    doc = Document()
+    doc.add_paragraph(f'Результат: {result}')
+    doc.save('результат.docx')
+
+def save_to_xls(result):
+    wb = Workbook()
+    ws = wb.active
+    ws['A1'] = 'Результат:'
+    ws['B1'] = result
+    wb.save('результат.xlsx')
 
 # Словарь с плотностями разных материалов
 densities = {'Дерево': 500, 'Металл': 7800, 'Пластик': 1300}
