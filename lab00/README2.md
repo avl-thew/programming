@@ -74,18 +74,30 @@ gcc -shared -fPIC -o libfirst.so hello.o
 ```Python
 
 gcc libfirst.c -c -fpic -o hello.o
-
+#  компилирует файл libfirst.c в объектный файл hello.o с флагами -c (только компиляция) и -fpic (для создания позиционно-независимого кода, нужно для shared библиотек).
 gcc hello.o -shared -o libhello.so
-
+#  создает shared библиотеку libhello.so из объектного файла hello.o.
 gcc test.o libhello.so -o test -L. -lhello
-
+# компилирует test.o, линкует с libhello.so в исполняемый файл test.
 ./test
-
+# запускает скомпилированную программу test для проверки.
 sudo cp libhello.so ~/../../usr/bin
-
+#  копирует shared библиотеку libhello.so в системный каталог библиотек.
 ./test
-
+# запускает test еще раз, на этот раз используя библиотеку из системного каталога.
 make
-
+#  вызывает Makefile для автоматической сборки проекта.
 ./app
+#  запускает скомпилированную программу app.
 ```
+
+
+
+
+
+
+gcc -c -fpic hello.c -o hello.o
+gcc -shared -Wl,-soname,libhello.so -o libhello.so hello.o
+
+
+gcc -c -fpic hello.c -o hello.o
