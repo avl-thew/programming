@@ -72,32 +72,42 @@ gcc -shared -fPIC -o libfirst.so hello.o
 Чтобы создать динамическую библиотеку, введите эти команды поочередно и она запуститься с помощью файла Makefile:
 
 ```Python
-
 gcc libfirst.c -c -fpic -o hello.o
 #  компилирует файл libfirst.c в объектный файл hello.o с флагами -c (только компиляция) и -fpic (для создания позиционно-независимого кода, нужно для shared библиотек).
+```
+
+```Python
 gcc hello.o -shared -o libhello.so
 #  создает shared библиотеку libhello.so из объектного файла hello.o.
+```
+
+```Python
 gcc test.o libhello.so -o test -L. -lhello
 # компилирует test.o, линкует с libhello.so в исполняемый файл test.
+```
+
+```Python
 ./test
 # запускает скомпилированную программу test для проверки.
+```
+
+```Python
 sudo cp libhello.so ~/../../usr/bin
 #  копирует shared библиотеку libhello.so в системный каталог библиотек.
+```
+
+```Python
 ./test
 # запускает test еще раз, на этот раз используя библиотеку из системного каталога.
+```
+
+```Python
 make
-#  вызывает Makefile для автоматической сборки проекта.
+#  вызывае
+```
+
+```Python
 ./app
 #  запускает скомпилированную программу app.
 ```
 
-
-
-
-
-
-gcc -c -fpic hello.c -o hello.o
-gcc -shared -Wl,-soname,libhello.so -o libhello.so hello.o
-
-
-gcc -c -fpic hello.c -o hello.o
