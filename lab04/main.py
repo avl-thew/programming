@@ -1,6 +1,10 @@
 from distance import distance
 from logic04 import Family
 from circle import Logic
+from store import get_goods, calculate_item_cost
+
+goods = get_goods()
+calculate_item_cost(goods['Лампа'])
 
 a = 550
 b = 600

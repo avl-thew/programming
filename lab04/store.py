@@ -85,3 +85,50 @@ print('Стул -', chair_quantity+chair_quantity1+chair_quantity2, 'шт, ст�
 
 
 #print(chair_quantity, chair_price, chair_quantity1, chair_price1,chair_quantity2, chair_price2)
+
+
+GOODS = {
+  'Лампа': '12345',
+  'Стол': '23456',
+  'Диван': '34567',
+  'Стул': '45678',
+}
+
+STORE = {
+  '12345': [
+        {'quantity': 27, 'price': 42},
+    ],
+    '23456': [
+        {'quantity': 22, 'price': 510},
+        {'quantity': 32, 'price': 520},
+    ],
+    '34567': [
+        {'quantity': 2, 'price': 1200},
+        {'quantity': 1, 'price': 1150},
+    ],
+    '45678': [
+        {'quantity': 50, 'price': 100},
+        {'quantity': 12, 'price': 95},
+        {'quantity': 43, 'price': 97},
+    ],
+}
+def get_goods():
+  return GOODS
+
+def get_store_data():
+  return STORE
+
+def calculate_item_cost(item_code):
+  item_data = STORE[item_code]
+  
+  total_quantity = 0
+  total_cost = 0
+  
+  for item in item_data:
+    total_quantity += item['quantity']
+    total_cost += item['quantity'] * item['price']
+
+chair_cost = chair_quantity * chair_price + chair_quantity1 * chair_price1 + chair_quantity2 * chair_price2
+
+print('Стул -', chair_quantity+chair_quantity1+chair_quantity2, 'шт, стоимость', chair_cost, 'руб')
+
