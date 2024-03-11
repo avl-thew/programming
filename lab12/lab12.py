@@ -12,14 +12,14 @@ from sphere import Sphere
 
 def save_to_doc(result):
         doc = Document()
-        doc.add_paragraph(f'Результат: {result}')
+        doc.add_paragraph(f'Результат: {result_window}')
         doc.save('результат.docx')
 
 def save_to_xls(result):
         wb = Workbook()
         ws = wb.active
         ws['A1'] = 'Результат:'
-        ws['B1'] = result
+        ws['B1'] = result_window
         wb.save('результат.xlsx')
 
 # Словарь с плотностями разных материалов
