@@ -1,33 +1,130 @@
-from sympy import * 
+
+
+from sympy import *
 import numpy as np
 import matplotlib.pyplot as plt
 
 x = Symbol('x')
 f = 1/(x**2*(1+x**2))
 
+integral1 = integrate(f, x)
+print(integral1)
+
+x_vals = np.linspace(-5, 5, 50)
+y_vals = [f.subs(x, x_i) for x_i in x_vals]
+plt.subplot(2, 2, 1)
+plt.plot(x_vals, y_vals)
+plt.title('Подынтегральная функция')
+
+# первообразные
+F1 = integrate(f, x)
+y1 = [F1.subs(x, x_i) for x_i in x_vals]
+plt.subplot(2, 2, 2)
+plt.plot(x_vals, y1)
+plt.title('Первообразная 1')
+
+F2 = integrate(f, (x, 5, x)) 
+y2 = [F2.subs(x, x_i) for x_i in x_vals]
+plt.subplot(2, 2, 3)  
+plt.plot(x_vals, y2)
+plt.title('Первообразная 2')
+
+F3 = integrate(f, (x, -2, x))
+y3 = [F3.subs(x, x_i) for x_i in x_vals]
+plt.subplot(2, 2, 4)
+plt.plot(x_vals, y3) 
+plt.title('Первообразная 3')
+
+plt.tight_layout()
+plt.show()
+
+
+
+
+from sympy import *
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = Symbol('x')
+f = (x**3)*sqrt(x**2 + 1) 
+
 integral = integrate(f, x)
 print(integral)
 
-x_values = np.linspace(-5, 5, 100)
-y_values = [f.subs(x, x_val) for x_val in x_values]
+x_values = np.linspace(-1, 1, 100)
+y_values = [f.subs(x, x_values) for x_values in x_values]
+
+plt.subplot(2, 2, 1)
+plt.plot(x_values, y_values)
+plt.title('Подынтегральная функция')
+
+
+
+plt.plot(x_values, y_values, color='blue')
+# первообразные
+F1 = integrate(f, x)
+y1 = [F1.subs(x, x_i) for x_i in x_values]
+plt.subplot(2, 2, 2)
+plt.plot(x_values, y1)
+plt.title('Первообразная 1')
+
+F2 = integrate(f, (x, 5, x)) 
+y2 = [F2.subs(x, x_i) for x_i in x_values]
+plt.subplot(2, 2, 3)  
+plt.plot(x_values, y2)
+plt.title('Первообразная 2')
+
+F3 = integrate(f, (x, -2, x))
+y3 = [F3.subs(x, x_i) for x_i in x_values]
+plt.subplot(2, 2, 4)
+plt.plot(x_values, y3) 
+plt.title('Первообразная 3')
+
+plt.tight_layout()
+plt.show()
+
+
+
+from sympy import *
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = Symbol('x')
+
+f = (x**2 + 3*x + 1) / (2*x - 1) 
+
+integral = integrate(f, x)
+print("Неопределенный интеграл:", integral)
+
+x_values = np.linspace(-3, 3, 100)
+y_values = [f.subs(x, x_values) for x_values in x_values]
 
 plt.plot(x_values, y_values, color='blue', label='f(x)')
 
-a1, b1 = -2, -1
-x1 = np.linspace(a1, b1, 10) 
-y1 = [integral.subs(x, x_val) for x_val in x1]
-plt.plot(x1, y1, color='green', label='Integral curve 1')
+plt.subplot(2, 2, 1)
+plt.plot(x_values, y_values)
+plt.title('Подынтегральная функция')
 
-a2, b2 = 1, 3
-x2 = np.linspace(a2, b2, 10)
-y2 = [integral.subs(x, x_val) for x_val in x2]  
-plt.plot(x2, y2, color='green', label='Integral curve 2')
 
-a3, b3 = -3, -2
-x3 = np.linspace(a3, b3, 10)
-y3 = [integral.subs(x, x_val) for x_val in x3]
-plt.plot(x3, y3, color='green', label='Integral curve 3')
+plt.plot(x_values, y_values, color='blue')
+# первообразные
+F1 = integrate(f, x)
+y = [F1.subs(x, x_i) for x_i in x_values]
+plt.subplot(2, 2, 2)
+plt.plot(x_values, y)
+plt.title('Первообразная 1')
 
-plt.legend()
+F2 = integrate(f, (x, 5, x)) 
+y2 = [F2.subs(x, x_i) for x_i in x_values]
+plt.subplot(2, 2, 3)  
+plt.plot(x_values, y2)
+plt.title('Первообразная 2')
+
+F3 = integrate(f, (x, -2, x))
+y3 = [F3.subs(x, x_i) for x_i in x_values]
+plt.subplot(2, 2, 4)
+plt.plot(x_values, y3) 
+plt.title('Первообразная 3')
+
+plt.tight_layout()
 plt.show()
-
