@@ -7,18 +7,12 @@
 - возможность сохранить результаты в отчёт формата .doc или .xls (например, пакеты python-docx и openpyxl).
 
 
+
+
+
+
 ### иснструкция по запуску:
-```
-pip install -U pip
-```
-```
-source env/bin/activate
-```
-
-```
-pip install -U pip
-```
-
+Для начала установите пакеты python-docx и openpyxl:
 ```
 pip install python-docx
 ```

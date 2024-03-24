@@ -129,22 +129,23 @@ def open_result_window(root, V, S, m):
 def main():
   root = tk.Tk()
   root.title("LAB 12") 
-  root.geometry('400x300')
-  label = tk.Label(root, text='Выберите фигуру:')
+  root.geometry('200x150')
+  root["bg"] = '#FFB6C1'
+  label = tk.Label(root, text='Выберите фигуру:', bg='#CD8C95')
   label.pack()
   
   shape = tk.StringVar()
   shape_var = tk.StringVar()
-  parallelepiped_radio = tk.Radiobutton(root, text='Параллелепипед', variable=shape, value='Параллелепипед')
+  parallelepiped_radio = tk.Radiobutton(root, text='Параллелепипед', bg='#C1FFC1', variable=shape, value='Параллелепипед')
   parallelepiped_radio.pack()
 
-  tetrahedron_radio = tk.Radiobutton(root, text='Тетраэдр', variable=shape, value='Тетраэдр')
+  tetrahedron_radio = tk.Radiobutton(root, text='Тетраэдр', bg='#B4EEB4', variable=shape, value='Тетраэдр')
   tetrahedron_radio.pack()  
 
-  sphere_radio = tk.Radiobutton(root, text='Шар', variable=shape, value='Шар')
+  sphere_radio = tk.Radiobutton(root, text='Шар', bg='#9BCD9B', variable=shape, value='Шар')
   sphere_radio.pack()
 
-  input_button = tk.Button(root, text='Ввести параметры', command=lambda: open_input_window(root, shape.get()))
+  input_button = tk.Button(root, text='Ввести параметры', bg='#CD8C95', command=lambda: open_input_window(root, shape.get()))
   input_button.pack()  
   
   root.mainloop()
