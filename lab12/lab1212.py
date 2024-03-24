@@ -1,7 +1,7 @@
 
 from tkinter import *
-# import tkinter as tk
-from geometries import parallelepiped1, tetrahedron1, sphere1
+import tkinter as tk
+import parallelepiped, tetrahedron, sphere
 
 
 
@@ -52,7 +52,7 @@ class MainGUI:
         if shape == "parallelepiped":
             print("ВЫБРАН ПАРАЛЕЛЕПИПИД\n")
             print(material)
-            p = parallelepiped1.Parallelepiped()
+            p = parallelepiped.Parallelepiped()
             p.material = material
             volume = p.calculate_volume() #ошибка
             surface_area = p.calculate_surface_area()
@@ -62,7 +62,7 @@ class MainGUI:
             self.mass_label.config(text="Mass: {}".format(mass))
 
         elif shape == "tetrahedron":
-            t = tetrahedron1.Tetrahedron()
+            t = tetrahedron.Tetrahedron()
             t.material = material
             volume = t.calculate_volume()
             surface_area = t.calculate_surface_area()
@@ -72,7 +72,7 @@ class MainGUI:
             self.mass_label.config(text="Mass: {}".format(mass))
 
         elif shape == "sphere":
-            s = sphere1.Sphere()
+            s = sphere.Sphere()
             s.material = material
             volume = s.calculate_volume()
             surface_area = s.calculate_surface_area()

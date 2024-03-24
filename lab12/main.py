@@ -1,5 +1,7 @@
 from tkinter import *
-from geometries import sphere
+from parallelepiped import Parallelepiped
+from tetrahedron import Tetrahedron
+from sphere import Sphere
 
 sph = sphere.Sphere(10, "сталь")
 
