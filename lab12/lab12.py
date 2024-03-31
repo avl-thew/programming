@@ -29,16 +29,19 @@ def save_to_xls(data, result):
    
 def open_input_window(root, shape):
     input_window = tk.Toplevel(root)
+    input_window["bg"] = "#FFB6C1" # желтый цвет
+    input_window.geometry("300x200") 
+    
     root.withdraw()
     
     if shape == 'Параллелепипед':
-        a_label = tk.Label(input_window, text='Длина:')
+        a_label = tk.Label(input_window, text='Длина:', bg="#B4EEB4")
         a_entry = tk.Entry(input_window)
-        b_label = tk.Label(input_window, text='Ширина:')
+        b_label = tk.Label(input_window, text='Ширина:', bg="#B4EEB4")
         b_entry = tk.Entry(input_window)
-        c_label = tk.Label(input_window, text='Высота:')
+        c_label = tk.Label(input_window, text='Высота:', bg="#B4EEB4")
         c_entry = tk.Entry(input_window)
-        density_label = tk.Label(input_window, text='Плотность:')
+        density_label = tk.Label(input_window, text='Плотность:', bg="#B4EEB4")
         density_entry = tk.Entry(input_window)
         
         a_label.grid(row=0, column=0)
@@ -64,14 +67,15 @@ def open_input_window(root, shape):
             save_to_xls(str(data), result)
             input_window.withdraw()
             open_result_window(root, V, S, m)
-                
+            
+        calc_button = tk.Button(input_window, bg="#FFE4B5")        
         calc_button = tk.Button(input_window, text='Рассчитать', command=calculate)
         calc_button.grid(row=4, column=0, columnspan=2)
         
     elif shape == 'Тетраэдр':
-        a_label = tk.Label(input_window, text='Длина:')
+        a_label = tk.Label(input_window, text='Длина:', bg="#B4EEB4")
         a_entry = tk.Entry(input_window)
-        density_label = tk.Label(input_window, text='Плотность:')
+        density_label = tk.Label(input_window, text='Плотность:', bg="#B4EEB4")
         density_entry = tk.Entry(input_window)    
         a_label.grid(row=0, column=0)
         a_entry.grid(row=0, column=1)
@@ -89,14 +93,15 @@ def open_input_window(root, shape):
             save_to_xls(str(data), result)
             input_window.withdraw()
             open_result_window(root, V, S, m)
-                
+            
+        calc_button = tk.Button(input_window, bg="#FFE4B5")        
         calc_button = tk.Button(input_window, text='Рассчитать', command=calculate)
         calc_button.grid(row=2, column=0, columnspan=2)
         
     else:
-        R_label = tk.Label(input_window, text='Радиус:')
+        R_label = tk.Label(input_window, text='Радиус:', bg="#B4EEB4")
         R_entry = tk.Entry(input_window)
-        density_label = tk.Label(input_window, text='Плотность:')
+        density_label = tk.Label(input_window, text='Плотность:', bg="#B4EEB4")
         density_entry = tk.Entry(input_window)    
         R_label.grid(row=0, column=0)
         R_entry.grid(row=0, column=1)
@@ -114,12 +119,15 @@ def open_input_window(root, shape):
             save_to_xls(str(data), result) 
             input_window.withdraw()
             open_result_window(root, V, S, m)
-    
+            
+        calc_button = tk.Button(input_window, bg="#FFE4B5")
         calc_button = tk.Button(input_window, text='Рассчитать', command=calculate)
         calc_button.grid(row=2, column=0, columnspan=2)
         
 def open_result_window(root, V, S, m):
   result_window = tk.Toplevel(root)
+  result_window["bg"] = "#FFB6C1"
+  result_window.geometry("300x250") 
   
   V_label = tk.Label(result_window, text=f'Объем (V): {V:.2f}')
   S_label = tk.Label(result_window, text=f'Площадь (S): {S:.2f}') 
@@ -146,13 +154,13 @@ def open_result_window(root, V, S, m):
 def main():
   root = tk.Tk()
   root.title("LAB 12") 
-  root.geometry('200x150')
+  root.geometry('300x250')
   root["bg"] = '#FFB6C1'
   label = tk.Label(root, text='Выберите фигуру:', bg='#CD8C95')
   label.pack()
   
   shape = tk.StringVar()
-  shape_var = tk.StringVar()
+
   parallelepiped_radio = tk.Radiobutton(root, text='Параллелепипед', bg='#C1FFC1', variable=shape, value='Параллелепипед')
   parallelepiped_radio.pack()
 
