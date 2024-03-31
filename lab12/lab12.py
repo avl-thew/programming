@@ -58,7 +58,7 @@ def open_input_window(root, shape):
             density = float(density_entry.get())
             p = Parallelepiped()
             V, S, m = p.calculate_parallelepiped(a, b, c, density)
-            data = {'a': a, 'b': b, 'c': c, 'density': density}
+            data = {'Длина': a, 'Ширина': b, 'Высота': c, 'Плотность': density}
             result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
             save_to_doc(str(data), result)
             save_to_xls(str(data), result)
@@ -83,7 +83,7 @@ def open_input_window(root, shape):
             density = float(density_entry.get())
             t = Tetrahedron()
             V, S, m = t.calculate_tetrahedron(a, density)
-            data = {'a': a, 'density': density}
+            data = {'Длина': a, 'Плотность': density}
             result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
             save_to_doc(str(data), result)
             save_to_xls(str(data), result)
@@ -108,7 +108,7 @@ def open_input_window(root, shape):
             density = float(density_entry.get())
             s = Sphere()
             V, S, m = s.calculate_sphere(R, density)
-            data = {'R': R,'density': density}
+            data = {'Радиус': R,'Плотсноть': density}
             result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
             save_to_doc(str(data), result)
             save_to_xls(str(data), result) 
