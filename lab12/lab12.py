@@ -8,17 +8,24 @@ from tetrahedron import Tetrahedron
 from sphere import Sphere
 
 
-def save_to_doc(result):
-        doc = Document()
-        doc.add_paragraph(f'Результат: {open_result_window}')
-        doc.save('результат.docx')
+def save_to_doc(data, result):
+  doc = Document()
+  doc.add_paragraph(data)
+  doc.add_paragraph(result)
+  doc.save('result.docx')
 
-def save_to_xls(result):
-        wb = Workbook()
-        ws = wb.active
-        ws['A1'] = 'Результат:'
-        ws['B1'] = open_result_window
-        wb.save('результат.xlsx')
+def save_to_xls(data, result):
+  wb = Workbook()
+  ws = wb.active
+  
+  ws['A1'] = 'Вводимые данные:'
+  ws['A2'] = data
+  
+  ws['B1'] = 'Результат:'
+  ws['B2'] = result  
+
+  wb.save('result.xlsx')
+
    
 def open_input_window(root, shape):
     input_window = tk.Toplevel(root)
@@ -51,6 +58,10 @@ def open_input_window(root, shape):
             density = float(density_entry.get())
             p = Parallelepiped()
             V, S, m = p.calculate_parallelepiped(a, b, c, density)
+            data = {'a': a, 'b': b, 'c': c, 'density': density}
+            result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
+            save_to_doc(str(data), result)
+            save_to_xls(str(data), result)
             input_window.withdraw()
             open_result_window(root, V, S, m)
                 
@@ -72,6 +83,10 @@ def open_input_window(root, shape):
             density = float(density_entry.get())
             t = Tetrahedron()
             V, S, m = t.calculate_tetrahedron(a, density)
+            data = {'a': a, 'density': density}
+            result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
+            save_to_doc(str(data), result)
+            save_to_xls(str(data), result)
             input_window.withdraw()
             open_result_window(root, V, S, m)
                 
@@ -93,7 +108,10 @@ def open_input_window(root, shape):
             density = float(density_entry.get())
             s = Sphere()
             V, S, m = s.calculate_sphere(R, density)
-                
+            data = {'R': R,'density': density}
+            result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
+            save_to_doc(str(data), result)
+            save_to_xls(str(data), result) 
             input_window.withdraw()
             open_result_window(root, V, S, m)
     
@@ -119,8 +137,7 @@ def open_result_window(root, V, S, m):
         V = V
         S = S 
         m = m
-        save_to_doc(V)
-        save_to_xls(S) 
+         
         open_result_window(root, V, S, m)
         root.destroy()   
 
