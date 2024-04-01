@@ -17,12 +17,24 @@ def save_to_doc(data, result):
 def save_to_xls(data, result):
   wb = Workbook()
   ws = wb.active
-  
+  i=2
+  j=1
   ws['A1'] = 'Вводимые данные:'
-  ws['A2'] = data
+  for key in data:
+    ws.cell(row = i, column= j, value=key)
+    ws.cell(row = i, column= j+1, value=data[key])
+    i=i+1
+    # ws['A2'] = key
+    # ws['A3'] = data[key]
+  k=1
+  p=3
   
-  ws['B1'] = 'Результат:'
-  ws['B2'] = result  
+  for lov in result:
+    ws.cell(row = k, column= p, value=lov)
+    ws.cell(row = k, column= p+1, value=result[lov])
+    k=k+1
+    # ws['B2'] = result[lov]  
+    # ws.cell()
 
   wb.save('result.xlsx')
 
@@ -62,9 +74,9 @@ def open_input_window(root, shape):
             p = Parallelepiped()
             V, S, m = p.calculate_parallelepiped(a, b, c, density)
             data = {'Длина': a, 'Ширина': b, 'Высота': c, 'Плотность': density}
-            result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
-            save_to_doc(str(data), result)
-            save_to_xls(str(data), result)
+            result = {'Объем': V, 'Площадь': S, 'Масса': m}
+            save_to_doc(data, result)
+            save_to_xls(data, result)
             input_window.withdraw()
             open_result_window(root, V, S, m)
             
@@ -88,9 +100,9 @@ def open_input_window(root, shape):
             t = Tetrahedron()
             V, S, m = t.calculate_tetrahedron(a, density)
             data = {'Длина': a, 'Плотность': density}
-            result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
-            save_to_doc(str(data), result)
-            save_to_xls(str(data), result)
+            result = {'Объем': V, 'Площадь': S, 'Масса': m}
+            save_to_doc(data, result)
+            save_to_xls(data, result)
             input_window.withdraw()
             open_result_window(root, V, S, m)
             
@@ -114,9 +126,9 @@ def open_input_window(root, shape):
             s = Sphere()
             V, S, m = s.calculate_sphere(R, density)
             data = {'Радиус': R,'Плотсноть': density}
-            result = f'Объем: {V}\nПлощадь: {S}\nМасса: {m}'
-            save_to_doc(str(data), result)
-            save_to_xls(str(data), result) 
+            result = {'Объем': V, 'Площадь': S, 'Масса': m}
+            save_to_doc(data, result)
+            save_to_xls(data, result) 
             input_window.withdraw()
             open_result_window(root, V, S, m)
             
