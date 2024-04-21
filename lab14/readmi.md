@@ -5,3 +5,4 @@ pip install faker
 установить SQL Server(mssql)
 установить SQLite
 
+Draw.io Integration
