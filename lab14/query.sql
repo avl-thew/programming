@@ -43,8 +43,8 @@ for _ in range(20):
         {str(random_date)}', {random.randint(1, 5)}, '{str(random_goods)[1:-1]}' ,{random.randint(1, 20)});")
 
 
--- select * from goods
--- select * from customers where id>10
--- select * from orders where customer_id=17
--- select * from customers where address='PSC 9969, Box 6551 APO AP 77238'
--- select sum(quantity) from goods
+select * from goods
+select * from customers where id>10
+select * from orders where customer_id=17
+select * from customers where address='PSC 9969, Box 6551 APO AP 77238'
+select sum(quantity) from goods
