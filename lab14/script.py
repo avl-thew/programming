@@ -37,5 +37,4 @@ if text:
             text3 = cursor.execute(sql_three).fetchall()  
             print("ID пользователя: {}".format(text3))
     i+=1
-# for row in text[0]:
-#     print(row)
+
