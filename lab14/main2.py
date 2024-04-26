@@ -60,18 +60,30 @@ for _ in range(20):
         seconds=random.randint(0, int((end_date - start_date).total_seconds())))
     random_goods = []
     for _ in range(random.randint(1, 5)):
+        random_num = random.randint(1, 4)
+    
+        if random_num == 1:
+            status = "ОБРАБАТЫВАЕТСЯ "
+        if random_num == 2:
+            status = "СОБИРАЕТСЯ"
+        if random_num == 3:
+            status = "В ПУТИ"
+        if random_num == 4:
+            status = "НА СКЛАДЕ"
+        if random_num == 5:
+            status = "ПОЛУЧЕН"
         random_goods.append(random.randint(1, 20))
     cursor.execute(
         "INSERT INTO orders (date, status, goods, customer_id) VALUES (?, ?, ?, ?)",
-        (str(random_date), random.randint(1, 5), str(random_goods)[1:-1], random.randint(1, 20))
+        (str(random_date), status, str(random_goods)[1:-1], random.randint(1, 20))
     )
 
 
 # text = cursor.execute("SELECT sum(quantity) FROM goods").fetchall()
-text = cursor.execute("SELECT * FROM orders WHERE customer_id=17 AND status=2").fetchall()
+# text = cursor.execute("SELECT * FROM orders WHERE customer_id=17 AND status=2").fetchall()
 
-for row in text[0]:
-    print(row)
+# for row in text[0]:
+#     print(row)
 
 # SELECT * FROM goods
 # SELECT * FROM customers WHERE id>10;
