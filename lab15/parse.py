@@ -8,8 +8,6 @@ from icecream import ic
 from pprint import pprint
 from db_api import create_sqlite_connection, execute_query, execute_read_query
 
-
-
 locale.setlocale(locale.LC_ALL, "ru_RU.UTF-8")
 
 def get_html(url) -> Optional[str]:
