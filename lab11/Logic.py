@@ -54,6 +54,7 @@ class Game:
 
         if self.is_winner():
             return self.current_turn
+            
         elif self.is_board_full():
             return "draw"
         else:
