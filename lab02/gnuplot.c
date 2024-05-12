@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-totalTime = 10.0
-
 int main() {
     FILE *gnuplotPipe = popen("gnuplot -persistent", "w");
     if (!gnuplotPipe) {
