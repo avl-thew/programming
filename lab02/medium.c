@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#include "gnuplot_i.h" // Подключаем библиотеку gnuplot_i
+#include "gnuplot_i.h" 
 
 int main()
 {
