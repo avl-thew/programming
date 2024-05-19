@@ -8,7 +8,7 @@ do for [t=0:100] {
     eps = h / 2.0
     
     set xrange [0:2]
-    set yrange [-2:2]
+    set yrange [-1.5:1.5]
     
     set title sprintf("Time: %.2f s", t / 10.0)
     set xlabel "x"
@@ -20,3 +20,7 @@ do for [t=0:100] {
 }
 
 set output
+
+
+# sudo apt update
+# sudo apt install gnuplot
