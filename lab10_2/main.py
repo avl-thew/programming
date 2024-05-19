@@ -1,14 +1,14 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QMessageBox, QLabel, QLineEdit
-import lab101.closure as closure
-import lab101.gen as gen
-import lab101.unp as unp
-
 # pip uninstall PyQt5
 # pip install PyQt5
 # pip uninstall PyQt5 pyqt5-tools
 # pip install PyQt5 pyqt5-tools
 # pip install --upgrade PyQt5
+
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QMessageBox, QLabel, QLineEdit
+import lab101.closure as closure
+import lab101.gen as gen
+import lab101.unp as unp
 
 class SimpleApp(QMainWindow):
     def __init__(self):
